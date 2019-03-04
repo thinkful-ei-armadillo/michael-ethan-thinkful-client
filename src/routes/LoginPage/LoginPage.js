@@ -10,6 +10,13 @@ export default class LoginPage extends Component {
     },
   }
 
+  componentDidMount = () => {
+
+    if (window.localStorage.getItem('thingful-client-auth-token') !== null) {
+      this.props.history.push('/');
+    }
+  }
+
   handleLoginSuccess = () => {
     const { location, history } = this.props
     const destination = (location.state || {}).from || '/'

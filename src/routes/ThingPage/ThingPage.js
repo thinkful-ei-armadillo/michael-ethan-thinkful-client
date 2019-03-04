@@ -15,6 +15,11 @@ export default class ThingPage extends Component {
   static contextType = ThingContext
 
   componentDidMount() {
+
+    if (window.localStorage.getItem('thingful-client-auth-token') === null) {
+      this.props.history.push('/login');
+    }
+
     const { thingId } = this.props.match.params
     this.context.clearError()
     ThingApiService.getThing(thingId)
