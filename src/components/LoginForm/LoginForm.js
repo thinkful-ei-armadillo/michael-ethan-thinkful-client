@@ -13,7 +13,11 @@ export default class LoginForm extends Component {
     const { user_name, password } = ev.target
 
     console.log('login form submitted')
-    console.log({ user_name, password })
+    console.log( user_name.value, password.value);
+
+    const authToken = window.btoa(`${user_name.value}:${password.value}`);
+
+    window.localStorage.setItem('thingful-client-auth-token', authToken)
 
     user_name.value = ''
     password.value = ''

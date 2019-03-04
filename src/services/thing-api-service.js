@@ -13,8 +13,12 @@ const ThingApiService = {
       )
   },
   getThing(thingId) {
+
+    const authToken = window.localStorage.getItem('thingful-client-auth-token');
+
     return fetch(`${config.API_ENDPOINT}/things/${thingId}`, {
       headers: {
+        'Authorization': `Bearer ${authToken}`,
       },
     })
       .then(res =>
@@ -24,8 +28,12 @@ const ThingApiService = {
       )
   },
   getThingReviews(thingId) {
+
+    const authToken = window.localStorage.getItem('thingful-client-auth-token');
+
     return fetch(`${config.API_ENDPOINT}/things/${thingId}/reviews`, {
       headers: {
+        'Authorization': `Bearer ${authToken}`,
       },
     })
       .then(res =>
@@ -35,9 +43,13 @@ const ThingApiService = {
       )
   },
   postReview(thingId, text, rating) {
+
+    const authToken = window.localStorage.getItem('thingful-client-auth-token');
+
     return fetch(`${config.API_ENDPOINT}/reviews`, {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${authToken}`,
         'content-type': 'application/json',
       },
       body: JSON.stringify({
