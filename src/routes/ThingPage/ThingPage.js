@@ -5,7 +5,6 @@ import ThingApiService from '../../services/thing-api-service'
 import { Hyph, Section } from '../../components/Utils/Utils'
 import { ThingStarRating } from '../../components/ThingStarRating/ThingStarRating'
 import ReviewForm from '../../components/ReviewForm/ReviewForm'
-import TokenService from '../../services/token-service'
 import './ThingPage.css'
 
 export default class ThingPage extends Component {

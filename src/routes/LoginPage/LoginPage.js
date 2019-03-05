@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import { Section } from '../../components/Utils/Utils'
-import TokenService from '../../services/token-service'
 
 export default class LoginPage extends Component {
   static defaultProps = {
