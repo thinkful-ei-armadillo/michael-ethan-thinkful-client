@@ -5,6 +5,7 @@ import ThingApiService from '../../services/thing-api-service'
 import { Hyph, Section } from '../../components/Utils/Utils'
 import { ThingStarRating } from '../../components/ThingStarRating/ThingStarRating'
 import ReviewForm from '../../components/ReviewForm/ReviewForm'
+import TokenService from '../../services/token-service'
 import './ThingPage.css'
 
 export default class ThingPage extends Component {
@@ -15,10 +16,6 @@ export default class ThingPage extends Component {
   static contextType = ThingContext
 
   componentDidMount() {
-
-    if (window.localStorage.getItem('thingful-client-auth-token') === null) {
-      this.props.history.push('/login');
-    }
 
     const { thingId } = this.props.match.params
     this.context.clearError()

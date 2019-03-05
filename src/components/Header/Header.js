@@ -7,7 +7,7 @@ import './Header.css'
 export default class Header extends Component {
   handleLogoutClick = () => {
 
-    window.localStorage.removeItem('thingful-client-auth-token');
+    TokenService.clearAuthToken();
   }
 
   renderLogoutLink() {

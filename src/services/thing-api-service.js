@@ -1,4 +1,5 @@
 import config from '../config'
+import TokenService from './token-service'
 
 const ThingApiService = {
   getThings() {
@@ -14,7 +15,7 @@ const ThingApiService = {
   },
   getThing(thingId) {
 
-    const authToken = window.localStorage.getItem('thingful-client-auth-token');
+    const authToken = TokenService.getAuthToken();
 
     return fetch(`${config.API_ENDPOINT}/things/${thingId}`, {
       headers: {
@@ -29,7 +30,7 @@ const ThingApiService = {
   },
   getThingReviews(thingId) {
 
-    const authToken = window.localStorage.getItem('thingful-client-auth-token');
+    const authToken = TokenService.getAuthToken();
 
     return fetch(`${config.API_ENDPOINT}/things/${thingId}/reviews`, {
       headers: {
@@ -44,7 +45,7 @@ const ThingApiService = {
   },
   postReview(thingId, text, rating) {
 
-    const authToken = window.localStorage.getItem('thingful-client-auth-token');
+    const authToken = TokenService.getAuthToken();
 
     return fetch(`${config.API_ENDPOINT}/reviews`, {
       method: 'POST',

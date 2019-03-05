@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Input } from '../Utils/Utils'
+import TokenService from '../../services/token-service'
 
 export default class LoginForm extends Component {
   static defaultProps = {
@@ -17,7 +18,7 @@ export default class LoginForm extends Component {
 
     const authToken = window.btoa(`${user_name.value}:${password.value}`);
 
-    window.localStorage.setItem('thingful-client-auth-token', authToken)
+    TokenService.saveAuthToken(authToken);
 
     user_name.value = ''
     password.value = ''

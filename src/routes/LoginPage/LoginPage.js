@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import { Section } from '../../components/Utils/Utils'
+import TokenService from '../../services/token-service'
 
 export default class LoginPage extends Component {
   static defaultProps = {
@@ -8,13 +9,6 @@ export default class LoginPage extends Component {
     history: {
       push: () => {},
     },
-  }
-
-  componentDidMount = () => {
-
-    if (window.localStorage.getItem('thingful-client-auth-token') !== null) {
-      this.props.history.push('/');
-    }
   }
 
   handleLoginSuccess = () => {
